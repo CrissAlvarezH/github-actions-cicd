@@ -16,6 +16,6 @@ elif [ $action = "temp-staging" ]; then
 
     docker compose build --no-cache develop
 
-    docker compose run --label traefik.http.routers.develop.rule=Host(`$(commit).cristianalvarezh.com`) --name $(commit) develop
+    docker compose run --label "traefik.http.routers.develop.rule=Host(`$(commit).cristianalvarezh.com`)" --name $(commit) develop
 
 fi
