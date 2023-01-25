@@ -1,0 +1,8 @@
+node_modules
+.next
+.vscode
+traefik.yaml
+traefik.log
+docker-compose.yaml
+manage.sh
+Makefile

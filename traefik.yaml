@@ -1,0 +1,8 @@
+providers:
+  docker: {}
+
+
+log:
+  filePath: /traefik.log
+  level: ERROR
+  format: json
