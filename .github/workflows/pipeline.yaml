@@ -22,6 +22,7 @@ jobs:
           IP: ${{secrets.IP}}
           PORT: 22
           SHELL: |
+            cd /home/ec2-user/github-actions-cicd
             make temp-staging commit=$(echo github.event.pull_request.head.sha | cut -c -7)
 
 #  build:
