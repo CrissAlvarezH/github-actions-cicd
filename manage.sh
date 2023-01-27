@@ -30,7 +30,7 @@ elif [ $action = "temp-staging" ]; then
 
     docker run -d \
       --label "traefik.http.routers.$commit.rule=Host(\`$commit.alvarezcristian.com\`)" \
-      --network github-action-cicd_default \
+      --network github-actions-cicd_default \
       --name $commit-container $commit-commit
 
     echo ""
