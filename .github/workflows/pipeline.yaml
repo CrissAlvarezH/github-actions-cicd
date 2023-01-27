@@ -11,7 +11,7 @@ jobs:
 
   deploy:
     if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - uses: tzzs/server-shell@v3
@@ -26,7 +26,7 @@ jobs:
 
   temp-staging:
     if: github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.action != 'synchronize'
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
         with:
