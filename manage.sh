@@ -47,4 +47,6 @@ elif [ $action = "rm-temp-staging" ]; then
 
     docker rmi $commit-commit
 
+    docker image prune -f
+
 fi
