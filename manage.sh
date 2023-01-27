@@ -19,12 +19,12 @@ elif [ $action = "temp-staging" ]; then
     docker build -t $commit-commit .
 
     docker run -d \
-      --label "traefik.http.routers.$commit.rule=Host(\`$commit.cristianalvarezh.com\`)" \
+      --label "traefik.http.routers.$commit.rule=Host(\`$commit.alvarezcristian.com\`)" \
       --network github-action-cicd_default \
       --name $commit-container $commit-commit
 
     echo ""
-    echo "Deployed on $commit.cristianalvarezh.com"
+    echo "Deployed on $commit.alvarezcristian.com"
 
 elif [ $action = "rm-temp-staging" ]; then
 
