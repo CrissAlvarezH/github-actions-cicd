@@ -12,10 +12,23 @@ if [ $action = "deploy" ]; then
 
 elif [ $action = "temp-staging" ]; then
 
-    git checkout $(commit)
+    commit=$1
 
-    docker compose build --no-cache develop
+    git checkout $commit
 
-    docker compose run --label "traefik.http.routers.develop.rule=Host(`$(commit).cristianalvarezh.com`)" --name $(commit) develop
+    docker build -t $commit-commit .
+
+    docker run -d \
+      --label "traefik.http.routers.$commit.rule=Host(\`$commit.cristianalvarezh.com\`)" \
+      --network github-action-cicd_default \
+      --name $commit-container $commit-commit
+
+elif [ $action = "rm-temp-staging" ]; then
+
+    docker stop $commit-container
+
+    docker rm -f $commit-container
+
+    docker rmi $commit-commit
 
 fi
