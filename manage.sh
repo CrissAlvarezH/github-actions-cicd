@@ -22,6 +22,7 @@ elif [ $action = "refresh" ]; then
 elif [ $action = "temp-staging" ]; then
 
     commit=$2
+    echo "commit: $commit"
 
     git checkout $commit
 
