@@ -19,7 +19,6 @@ elif [ $action = "refresh" ]; then
 
     docker-compose up -d
 
-
 elif [ $action = "temp-staging" ]; then
 
     commit=$2
