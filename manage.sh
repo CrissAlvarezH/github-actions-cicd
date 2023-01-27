@@ -24,6 +24,7 @@ elif [ $action = "temp-staging" ]; then
     commit=$2
     echo "commit: $commit"
 
+    git fetch
     git checkout $commit
 
     docker build -t $commit-commit .
