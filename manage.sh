@@ -6,9 +6,9 @@ if [ $action = "deploy" ]; then
 
     [ ! -f traefik.log ] && touch traefik.log && echo "\ncreate traefik.log for error logs"
 
-    docker compose build develop
+    docker-compose build develop
 
-    docker compose up -d
+    docker-compose up -d
 
 elif [ $action = "temp-staging" ]; then
 
