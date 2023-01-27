@@ -21,8 +21,8 @@ jobs:
           IP: ${{secrets.IP}}
           PORT: 22
           SHELL: |
-            cd /home/ec2-user/github-actions-cicd
-            make deploy
+            cd /home/ec2-user/github-actions-cicd && \
+              make deploy
 
   temp-staging:
     if: github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.action != 'synchronize'
@@ -38,8 +38,8 @@ jobs:
           IP: ${{secrets.IP}}
           PORT: 22
           SHELL: |
-            cd /home/ec2-user/github-actions-cicd
-            make temp-staging commit=$(echo github.event.pull_request.head.sha | cut -c -7)
+            cd /home/ec2-user/github-actions-cicd && \
+              make temp-staging commit=$(echo github.event.pull_request.head.sha | cut -c -7)
 
 #  build:
 #    runs-on: ubuntu-latest
