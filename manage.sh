@@ -12,7 +12,7 @@ if [ $action = "deploy" ]; then
 
 elif [ $action = "temp-staging" ]; then
 
-    commit=$1
+    commit=$2
 
     git checkout $commit
 
@@ -23,7 +23,12 @@ elif [ $action = "temp-staging" ]; then
       --network github-action-cicd_default \
       --name $commit-container $commit-commit
 
+    echo ""
+    echo "Deployed on $commit.cristianalvarezh.com"
+
 elif [ $action = "rm-temp-staging" ]; then
+
+    commit=$2
 
     docker stop $commit-container
 
