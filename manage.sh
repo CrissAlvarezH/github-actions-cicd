@@ -10,6 +10,16 @@ if [ $action = "deploy" ]; then
 
     docker-compose up -d
 
+elif [ $action = "refresh" ]; then
+
+    git switch main
+    git pull
+
+    docker-compose build develop
+
+    docker-compose up -d
+
+
 elif [ $action = "temp-staging" ]; then
 
     commit=$2

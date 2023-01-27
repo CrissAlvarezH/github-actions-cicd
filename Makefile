@@ -2,6 +2,9 @@
 deploy:
 	sh manage.sh deploy
 
+refresh:
+	sh manage.sh refresh
+
 temp-staging:
 	sh manage.sh temp-staging $(commit)
 
